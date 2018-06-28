@@ -1,0 +1,13 @@
+# www.robotstxt.org/
+
+# Allow crawling of all content
+User-agent: Google
+Disallow: /img/
+Disallow: /static/
+Disallow: /players.html
+Disallow: /matches.html
+
+User-agent: *
+Disallow: *
+
+

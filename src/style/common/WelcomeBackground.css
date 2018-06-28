@@ -1,0 +1,41 @@
+.WelcomeBackground-bgdiv {
+    margin-top: 50px;
+    min-height: 100%;
+    background-size: cover;
+    position: relative;
+}
+
+.WelcomeBackground-bgdiv.Parallax {
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    opacity: 0.85;
+}
+
+.WelcomeBackground-bgdiv.UnderNavBar {
+    margin-top: 0;
+}
+
+.WelcomeBackground-contentdiv {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    margin-top: -25px;
+}
+
+.WelcomeBackground-contentspan {
+    font-size: x-large;
+    background-color: #111;
+    padding: 25px;
+    text-align: center;
+}
+
+/*Disable parallax effect on mobile devices*/
+@media only screen and (max-device-width: 1024px) {
+    .WelcomeBackground-bgdiv.Parallax {
+        background-attachment: scroll;
+    }
+}

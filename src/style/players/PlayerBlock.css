@@ -1,0 +1,97 @@
+.PlayerBlock {
+    display: inline-block;
+    padding: 20px;
+    background: #222;
+    margin: 20px;
+    vertical-align: middle;
+}
+
+.PlayerPortrait img {
+    display: inline-block;
+    margin-bottom: 5px;
+    width: 150px;
+    height: 200px;
+}
+
+.PlayerBasicInfo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.PlayerSignatureHeroes {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: auto;
+}
+
+.PlayerSignatureHero img {
+    width: auto;
+    height: 55px;
+}
+
+.PlayerSteamAccounts {
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.PlayerSteamAccount {
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px 0 10px;
+}
+
+.PlayerSteamAvatar {
+    border: 3px solid;
+}
+
+.PlayerSteamAvatar.PlayerSteamOffline {
+    border-color: #2a2a2a;
+}
+
+.PlayerSteamAvatar.PlayerSteamOnline {
+    border-color: #57cbde;
+}
+
+.PlayerSteamAvatar.PlayerSteamInGame {
+    border-color: #90ba3c;
+}
+
+.PlayerBlock p {
+    color: #999999;
+    margin: 0 0 0 0;
+}
+
+/* For normal mobile devices. */
+@media only screen and (max-device-width: 700px) {
+    .PlayerBlock {
+        display: block;
+        padding: 15px 0 15px 0;
+        margin: 10px auto;
+    }
+
+    .PlayerBasicInfo {
+        display: block;
+    }
+
+    .PlayerSteamAccounts {
+        margin: 10px auto;
+    }
+
+    .PlayerSignatureHeroes {
+        display: block;
+    }
+
+    .PlayerSignatureHero {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .PlayerSignatureHero img {
+        width: 90px;
+        height: auto;
+    }
+}

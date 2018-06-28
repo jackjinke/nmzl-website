@@ -1,0 +1,9 @@
+.SiteFooter {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.SiteFooter p {
+    padding: 0 4rem;
+    position: relative;
+}
