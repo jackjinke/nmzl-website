@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/common/common.css';
+import './component/common/CommonStyle.js';
 import PlayersPage from './component/players/PlayersPage';
 import registerServiceWorker from './registerServiceWorker';
 

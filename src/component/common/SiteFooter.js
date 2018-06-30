@@ -10,7 +10,7 @@ export default class SiteFooter extends Component {
                     href='//github.com/jackjinke/nmzl-website'>GitHub</a>.
                 </p>
                 <p>
-                    This website is hosted on <a href='//aws.amazon.com'>AWS</a>.
+                    NMZL.us is a serverless website hosted on <a href='//aws.amazon.com'>AWS</a>.
                     Dota 2, Dota 2 icons and images and Steam are copyrighted by <a href='//www.valvesoftware.com/'>Valve
                     Software</a>.
                 </p>

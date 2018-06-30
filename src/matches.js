@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/common/common.css';
-import PlayersPage from './component/players/PlayersPage';
+import './component/common/CommonStyle.js';
+
+import MatchesPage from "./component/matches/MatchesPage";
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<PlayersPage/>, document.getElementById('root'));
+ReactDOM.render(<MatchesPage/>, document.getElementById('root'));
 registerServiceWorker();

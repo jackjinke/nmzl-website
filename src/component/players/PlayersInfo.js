@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PlayerBlock from "./PlayerBlock";
 
 import '../../style/players/PlayersInfo.css';
+import LoadingInfo from "../common/LoadingInfo";
 
 const STATUS_PLAYER_INFO_FETCHING = 'PLAYER_INFO_FETCHING';
 const STATUS_PLAYER_INFO_FETCHED = 'PLAYER_INFO_FETCHED';
@@ -34,11 +35,11 @@ export default class PlayersInfo extends Component {
     getContent(status) {
         switch (status) {
             case STATUS_PLAYER_INFO_FETCHING:
-                return (<p>Loading...</p>);
+                return (<LoadingInfo/>);
             case STATUS_PLAYER_INFO_FETCHED:
                 return this.state.playerBlocks;
             default:
-                return (<p>Error</p>);
+                return (<p>Whoops, something's wrong</p>);
         }
     }
 

@@ -1,0 +1,32 @@
+html, body, div#root {
+    height: 100%;
+}
+
+div#root > div {
+    height: 100%;
+}
+
+.ContentBlock {
+    color: #777;
+    background-color: white;
+    padding: 50px;
+    text-align: justify;
+}
+
+.TextBlock {
+    text-align: center;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    .ContentBlock {
+        padding: 15px 0;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #222 !important;
+    color: #576162 !important;
+}

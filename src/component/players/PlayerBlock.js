@@ -29,16 +29,17 @@ class PlayerBasicInfo extends Component {
         let imgName = this.playerName.replace(', ', '') + '.jpg';
         let notFoundName = 'NotFound.jpg';
         let imgPathPrefix = '/img/players/portrait/';
-        fetch(imgPathPrefix + imgName)
-            .then((response) => {
-                if (response.ok) {
-                    this.setState({playerPortrait: imgPathPrefix + imgName});
-                }
-                else throw Error(`${this.playerName}'s portrait is missing; please contact website administrator`);
-            })
-            .catch(() => {
-                this.setState({playerPortrait: imgPathPrefix + notFoundName});
-            });
+
+        fetch(imgPathPrefix + imgName, {
+            method: 'HEAD'
+        }).then((response) => {
+            if (response.ok && response.headers.get('content-type').startsWith('image')) {
+                this.setState({playerPortrait: imgPathPrefix + imgName});
+            }
+            else throw Error(`${this.playerName}'s portrait is missing; please contact website administrator`);
+        }).catch(() => {
+            this.setState({playerPortrait: imgPathPrefix + notFoundName});
+        });
     }
 
     componentWillMount() {
@@ -133,7 +134,7 @@ class PlayerSignatureHeroes extends Component {
                 <div className='PlayerSignatureHero'>
                     <img src={signatureHero.hero_img} alt={signatureHero.hero_id}/>
                     <p>
-                        {(signatureHero.win_rate * 100).toFixed(2) + '% (' + signatureHero.win + '/' + signatureHero.games}
+                        {`${(signatureHero.win_rate * 100).toFixed(2)}% (${signatureHero.win}/${signatureHero.games})`}
                     </p>
                 </div>
             );

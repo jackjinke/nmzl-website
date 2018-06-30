@@ -12,7 +12,7 @@ export default class WelcomeBackground extends Component {
         this.contentDivStyle = props.contentDivStyle;
         this.contentSpanStyle = props.contentSpanStyle;
         this.bgClassName = [
-            'WelcomeBackground-bgdiv',
+            'WelcomeBackground',
             (props.parallax ? 'Parallax' : null),
             (props.underNavBar ? 'UnderNavBar' : null)
         ].join(' ');
@@ -21,8 +21,8 @@ export default class WelcomeBackground extends Component {
     render() {
         return (
             <div className={this.bgClassName} style={this.bgStyle}>
-                <div className='WelcomeBackground-contentdiv' style={this.contentDivStyle}>
-                <span className='WelcomeBackground-contentspan' style={this.contentSpanStyle}>
+                <div className='WelcomeBackgroundContentDiv' style={this.contentDivStyle}>
+                <span className='WelcomeBackgroundContentSpan' style={this.contentSpanStyle}>
                     {this.state.children}
                 </span>
                 </div>

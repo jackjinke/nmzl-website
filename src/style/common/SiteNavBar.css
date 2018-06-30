@@ -1,0 +1,8 @@
+img.NavItemImg {
+    height: 34px;
+}
+
+.NavBarLinkWithImg {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+}

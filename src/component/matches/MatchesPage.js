@@ -2,22 +2,23 @@ import React, {Component} from 'react';
 import SiteNavBar from '../common/SiteNavBar'
 import SiteFooter from '../common/SiteFooter'
 import WelcomeBackground from "../common/WelcomeBackground";
-import PlayersInfo from "./PlayersInfo";
 
-export default class PlayersPage extends Component {
+export default class MatchesPage extends Component {
     render() {
         return (
-            <div className="PlayersPage">
+            <div className="MatchesPage">
                 <SiteNavBar/>
                 <WelcomeBackground
-                    bgImg={'/img/players/Team-Photo.jpg'}
-                    bgStyle={{backgroundPosition: '50% 72%', minHeight: '50%'}}>
+                    bgImg={'/img/matches/Battle-Cup.png'}
+                    bgStyle={{backgroundPosition: '50% 50%', minHeight: '50%'}}>
                     <span className='DefaultTitleText'>
-                        PLAYERS
+                        MATCHES
                     </span>
                 </WelcomeBackground>
                 <div className='ContentBlock'>
-                    <PlayersInfo/>
+                    <div className='TextBlock'>
+                        <h3>Work In Progress</h3>
+                    </div>
                 </div>
                 <SiteFooter/>
             </div>
