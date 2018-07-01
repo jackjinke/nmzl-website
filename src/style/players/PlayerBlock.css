@@ -1,6 +1,6 @@
 .PlayerBlock {
     display: inline-block;
-    padding: 20px;
+    padding: 15px 20px;
     background: #222;
     margin: 20px;
     vertical-align: middle;
@@ -8,7 +8,8 @@
 
 .PlayerPortrait img {
     display: inline-block;
-    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     width: 150px;
     height: 200px;
 }
@@ -22,6 +23,10 @@
     display: inline-block;
     vertical-align: middle;
     margin-left: auto;
+}
+
+.PlayerSignatureHero {
+    margin: 5px auto;
 }
 
 .PlayerSignatureHero img {
@@ -41,7 +46,7 @@
     text-align: center;
     display: inline-block;
     vertical-align: middle;
-    margin: 0 10px 0 10px;
+    margin: 5px 10px;
 }
 
 .PlayerSteamAvatar {

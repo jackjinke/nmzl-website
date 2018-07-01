@@ -18,6 +18,11 @@ export default class PlayersPage extends Component {
                 </WelcomeBackground>
                 <div className='ContentBlock'>
                     <PlayersInfo/>
+                    <div className='TextBlock'>
+                        <p>Signature heroes are calculated based on the player's most played heroes in their recent
+                            matches across all accounts.</p>
+                        <p>Data Source: OpenDota & Steam</p>
+                    </div>
                 </div>
                 <SiteFooter/>
             </div>

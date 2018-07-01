@@ -1,0 +1,56 @@
+.MatchResult.WinResult {
+    font-weight: bold;
+    color: #333;
+}
+
+.MatchResult.LossResult {
+    text-decoration: underline;
+}
+
+.TeamLineup {
+    display: inline-block;
+}
+
+.TeamLineup img {
+    height: 40px;
+}
+
+.TeamLineup.SelfTeamLineup {
+    border: 5px solid;
+}
+
+.TeamLineup.SelfTeamLineup.WinTeamLineup {
+    border-color: #99ee99;
+}
+
+.TeamLineup.SelfTeamLineup.LossTeamLineup {
+    border-color: #ee9999;
+}
+
+.MatchScore .WinTeamScore {
+    font-weight: bold;
+    color: #222;
+}
+
+.MatchScore .SelfTeamScore {
+    text-decoration: underline;
+}
+
+.MatchScore .TeamScoreSeparator {
+    font-weight: bold;
+    color: #222;
+}
+
+.table > tbody > tr > td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table > thead > th {
+    text-align: center;
+    padding: 0 5px;
+}
+
+.table > tbody > tr > td > p {
+    margin-bottom: 0;
+}

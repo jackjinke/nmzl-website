@@ -4,39 +4,36 @@ import PlayerBlock from "./PlayerBlock";
 import '../../style/players/PlayersInfo.css';
 import LoadingInfo from "../common/LoadingInfo";
 
-const STATUS_PLAYER_INFO_FETCHING = 'PLAYER_INFO_FETCHING';
-const STATUS_PLAYER_INFO_FETCHED = 'PLAYER_INFO_FETCHED';
-const STATUS_PLAYER_INFO_FETCH_ERROR = 'PLAYER_INFO_FETCH_ERROR';
+const STATUS_PLAYERS_FETCHING = 'PLAYER_INFO_FETCHING';
+const STATUS_PLAYERS_FETCHED = 'PLAYER_INFO_FETCHED';
+const STATUS_PLAYERS_FETCH_ERROR = 'PLAYER_INFO_FETCH_ERROR';
 
 export default class PlayersInfo extends Component {
     constructor() {
         super();
-        this.state = {status: STATUS_PLAYER_INFO_FETCHING};
+        this.state = {status: STATUS_PLAYERS_FETCHING};
     }
 
     getPlayers() {
-        fetch('https://api.nmzl.us/prod/players')
-            .then((response) => {
+        fetch('https://api.nmzl.us/prod/players').then((response) => {
                 return response.json();
-            })
-            .then((responseJson) => {
+        }).then((responseJson) => {
                 this.setState({
-                    status: STATUS_PLAYER_INFO_FETCHED,
+                    status: STATUS_PLAYERS_FETCHED,
                     playerBlocks: responseJson.map((player) => {
                         return (<PlayerBlock player={player}/>);
                     })
                 });
-            })
-            .catch(() => {
-                this.setState({status: STATUS_PLAYER_INFO_FETCH_ERROR});
+        }).catch(() => {
+            this.setState({status: STATUS_PLAYERS_FETCH_ERROR});
             });
     }
 
     getContent(status) {
         switch (status) {
-            case STATUS_PLAYER_INFO_FETCHING:
-                return (<LoadingInfo/>);
-            case STATUS_PLAYER_INFO_FETCHED:
+            case STATUS_PLAYERS_FETCHING:
+                return (<LoadingInfo loadingText='Loading players...'/>);
+            case STATUS_PLAYERS_FETCHED:
                 return this.state.playerBlocks;
             default:
                 return (<p>Whoops, something's wrong</p>);
