@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Nav, Navbar, NavItem} from 'react-bootstrap';
+import {Glyphicon, MenuItem, Nav, Navbar, NavDropdown, NavItem} from 'react-bootstrap';
 import '../../style/common/SiteNavBar.css';
 
 export default class SiteNavBar extends Component {
@@ -22,6 +22,14 @@ export default class SiteNavBar extends Component {
                         <NavItem href='/matches.html'>
                             Matches
                         </NavItem>
+                        <NavDropdown title='Tools'>
+                            <MenuItem href='/tools/random.html'>
+                                Random a Hero
+                            </MenuItem>
+                            <MenuItem href='http://dotapicker.com/herocounter#!/M_cm/S_1_advcharts/S_2_matchups'>
+                                Dota Picker <Glyphicon glyph='new-window'/>
+                            </MenuItem>
+                        </NavDropdown>
                     </Nav>
                     <Nav pullRight>
                         <li role='presentation'>

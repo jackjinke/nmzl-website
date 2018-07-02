@@ -4,9 +4,9 @@ import PlayerBlock from "./PlayerBlock";
 import '../../style/players/PlayersInfo.css';
 import LoadingInfo from "../common/LoadingInfo";
 
-const STATUS_PLAYERS_FETCHING = 'PLAYER_INFO_FETCHING';
-const STATUS_PLAYERS_FETCHED = 'PLAYER_INFO_FETCHED';
-const STATUS_PLAYERS_FETCH_ERROR = 'PLAYER_INFO_FETCH_ERROR';
+const STATUS_PLAYERS_FETCHING = 'PLAYERS_FETCHING';
+const STATUS_PLAYERS_FETCHED = 'PLAYERS_FETCHED';
+const STATUS_PLAYERS_FETCH_ERROR = 'PLAYERS_FETCH_ERROR';
 
 export default class PlayersInfo extends Component {
     constructor() {

@@ -47,17 +47,22 @@ module.exports = {
         {
             appName: "index",
             appHtml: resolveApp('public/index.html'),
-            appIndexJs: resolveApp('src/index.js')
+            appIndexJs: resolveApp('src/entry/index.js')
         },
         {
             appName: "players",
             appHtml: resolveApp('public/players.html'),
-            appIndexJs: resolveApp('src/players.js')
+            appIndexJs: resolveApp('src/entry/players.js')
         },
         {
             appName: "matches",
             appHtml: resolveApp('public/matches.html'),
-            appIndexJs: resolveApp('src/matches.js')
+            appIndexJs: resolveApp('src/entry/matches.js')
+        },
+        {
+            appName: "tools/random",
+            appHtml: resolveApp('public/tools/random.html'),
+            appIndexJs: resolveApp('src/entry/tools/random.js')
         }
     ],
     appEntryJs: resolveApp('src/index.js'),

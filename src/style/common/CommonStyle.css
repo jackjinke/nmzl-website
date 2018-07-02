@@ -21,6 +21,10 @@ div#root > div {
     .ContentBlock {
         padding: 15px 0;
     }
+
+    .TextBlock {
+        padding: 0 10px;
+    }
 }
 
 body {
