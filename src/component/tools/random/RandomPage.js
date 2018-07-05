@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import SiteNavBar from '../../common/SiteNavBar'
 import SiteFooter from '../../common/SiteFooter'
 import RandomPicker from "./RandomPicker";
+import ToolsTitle from "../ToolsTitle";
 
 export default class RandomPage extends Component {
     render() {
@@ -9,8 +10,7 @@ export default class RandomPage extends Component {
             <div className="RandomPage">
                 <SiteNavBar/>
                 <div className='ContentBlock'>
-                    <h1>Random a Hero</h1>
-                    <hr/>
+                    <ToolsTitle title='Random a Hero'/>
                     <RandomPicker/>
                 </div>
                 <SiteFooter/>

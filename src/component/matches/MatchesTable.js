@@ -15,7 +15,7 @@ export default class MatchesTable extends Component {
     }
 
     getMatches() {
-        fetch('https://api.nmzl.us/prod/matches').then((response) => {
+        fetch('https://api.nmzl.us/matches').then((response) => {
             return response.json();
         }).then((responseJson) => {
             this.setState({

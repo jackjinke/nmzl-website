@@ -7,6 +7,9 @@ Parameters:
   SiteBucketName:
     Type: String
     Description: Name of bucket to create to host the website
+  SiteImgBucketName:
+    Type: String
+    Description: Name of bucket to create to host the website
   GitHubUser:
     Type: String
     Description: GitHub User
@@ -44,6 +47,7 @@ Metadata:
           default: Site Configuration
         Parameters:
           - SiteBucketName
+          - SiteImgBucketName
       - Label:
           default: GitHub Configuration
         Parameters:
@@ -59,6 +63,8 @@ Metadata:
           - BuildImage
     ParameterLabels:
       SiteBucketName:
+        default: Name of S3 Bucket to create for website hosting
+      SiteImgBucketName:
         default: Name of S3 Bucket to create for website hosting
       GitHubToken:
         default: GitHub OAuth2 Token
@@ -200,11 +206,12 @@ Resources:
     Properties:
       AccessControl: PublicRead
       BucketName: !Ref SiteBucketName
-      WebsiteConfiguration:
-        IndexDocument: index.html
-    Metadata:
-      'AWS::CloudFormation::Designer':
-        id: 23e12e3c-b3d3-44bf-80f0-a63bbe9b84b5
+  SiteImgBucket:
+      Type: 'AWS::S3::Bucket'
+      DeletionPolicy: Delete
+      Properties:
+        AccessControl: PublicRead
+        BucketName: !Ref SiteImgBucketName
   PipelineBucket:
     Type: 'AWS::S3::Bucket'
     DeletionPolicy: Delete
@@ -229,7 +236,7 @@ Resources:
       Source:
         Type: CODEPIPELINE
         BuildSpec: !Sub |
-          version: 0.1
+          version: 0.2
           phases:
             install:
               commands:
@@ -295,8 +302,3 @@ Outputs:
     Value: !Sub >-
       https://console.aws.amazon.com/codepipeline/home?region=${AWS::Region}#/view/${Pipeline}
     Description: CodePipeline URL
-  SiteUrl:
-    Value: !GetAtt
-      - SiteBucket
-      - WebsiteURL
-    Description: S3 Website URL

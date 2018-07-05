@@ -15,7 +15,7 @@ export default class PlayersInfo extends Component {
     }
 
     getPlayers() {
-        fetch('https://api.nmzl.us/prod/players').then((response) => {
+        fetch('https://api.nmzl.us/players').then((response) => {
                 return response.json();
         }).then((responseJson) => {
                 this.setState({
