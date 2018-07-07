@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Util from '../common/Util';
 import '../../style/matches/MatchRow.css';
 
 export default class MatchRow extends Component {
@@ -115,7 +116,7 @@ class TeamLineup extends Component {
     render() {
         return (
             <div className={this.lineupClasses.join(' ')}>
-                {this.lineup.map((hero) => <img src={hero.hero_img} alt={hero.hero_id}/>)}
+                {this.lineup.map((hero) => <img src={Util.resolveHeroImagePath(hero.hero_img)} alt={hero.hero_id}/>)}
             </div>
         )
     }

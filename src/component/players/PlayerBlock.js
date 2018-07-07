@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Util from '../common/Util';
 import '../../style/players/PlayerBlock.css'
 
 export default class PlayerBlock extends Component {
@@ -132,7 +133,7 @@ class PlayerSignatureHeroes extends Component {
         let signatureHeroBlocks = this.signatureHeroes.map((signatureHero) => {
             return (
                 <div className='PlayerSignatureHero'>
-                    <img src={signatureHero.hero_img} alt={signatureHero.hero_id}/>
+                    <img src={Util.resolveHeroImagePath(signatureHero.hero_img)} alt={signatureHero.hero_id}/>
                     <p>
                         {`${(signatureHero.win_rate * 100).toFixed(2)}% (${signatureHero.win}/${signatureHero.games})`}
                     </p>

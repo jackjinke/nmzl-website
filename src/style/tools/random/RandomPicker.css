@@ -1,0 +1,18 @@
+.RandomPicker {
+    padding: 30px 0;
+}
+
+.RandomButton {
+    text-align: center;
+    padding: 20px;
+}
+
+.RandomButton button {
+    width: 260px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.RandomResultBlock {
+    text-align: center;
+}
