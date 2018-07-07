@@ -21,6 +21,8 @@ export default class PlayersPage extends Component {
                     <div className='TextBlock'>
                         <p>Signature heroes are calculated based on the player's most played heroes in their recent
                             matches across all accounts.</p>
+                        <p>OpenDota match data for all steam accounts listed here will be refreshed by NMZL.us every
+                            day.</p>
                         <p>Data Source: OpenDota & Steam</p>
                     </div>
                 </div>
