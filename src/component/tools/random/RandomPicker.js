@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button} from 'react-bootstrap';
+import {Button, Table} from 'react-bootstrap';
 import LoadingInfo from "../../common/LoadingInfo";
 import Util from '../../common/Util';
 import '../../../style/tools/random/RandomPicker.css'
@@ -10,6 +10,17 @@ const STATUS_HERO_METADATA_FETCH_ERROR = 'HERO_DATA_FETCH_ERROR';
 
 const STATUS_BUTTON_LOAD = 'BUTTON_LOAD';
 const STATUS_BUTTON_CLICKED = 'BUTTON_CLICKED';
+
+const LEVEL_MAP = {
+    1: 'Herald',
+    2: 'Guardian',
+    3: 'Crusader',
+    4: 'Archon',
+    5: 'Legend',
+    6: 'Ancient',
+    7: 'Divine',
+    8: 'Immortal',
+};
 
 export default class RandomPicker extends Component {
     constructor() {
@@ -108,20 +119,36 @@ class RandomResultBlock extends Component {
         this.state = {};
         this.heroData = props.heroData;
         this.setHero = this.setHero.bind(this);
+        this.winRateTableRef = React.createRef();
     }
 
     setHero(heroId) {
         this.setState({heroId: heroId});
+        if (this.winRateTableRef.current) {
+            this.winRateTableRef.current.setHero(heroId);
+        }
+    }
+
+    getHeroName(id) {
+        return this.heroData[id].localized_name.S;
     }
 
     getContent() {
-        console.log(this.state.heroId);
         if (this.state.heroId) {
             return (
                 <div>
                     <h5>GabeN just helped you picked:</h5>
-                    <img src={Util.resolveHeroImagePath(this.heroData[this.state.heroId].img.S)}
-                         alt={this.state.heroId}/>
+                    <div className='RandomResult-Hero'>
+                        <img src={Util.resolveHeroImagePath(this.heroData[this.state.heroId].img.S)}
+                             alt={this.getHeroName(this.state.heroId)}/>
+                    </div>
+                    <div className='RandomResult-HeroInfo'>
+                        <WinrateTable heroId={this.state.heroId}
+                                      heroData={this.heroData}
+                                      minLevel={5}
+                                      maxLevel={8}
+                                      ref={this.winRateTableRef}/>
+                    </div>
                 </div>
             )
         }
@@ -139,6 +166,54 @@ class RandomResultBlock extends Component {
         return (
             <div className='RandomResultBlock'>
                 {this.getContent()}
+            </div>
+        )
+    }
+}
+
+class WinrateTable extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {heroId: props.heroId};
+        this.heroData = props.heroData;
+        this.minLevel = props.minLevel;
+        this.maxLevel = props.maxLevel;
+
+        this.setHero = this.setHero.bind(this);
+    }
+
+    setHero(heroId) {
+        this.setState({heroId: heroId});
+    }
+
+    getWinrateAtLevel(level) {
+        return ((this.heroData[this.state.heroId].winrate.M[level].N) * 100).toFixed(2);
+    }
+
+    getWinrateRows() {
+        let matchRows = [];
+        for (let level = this.minLevel; level <= this.maxLevel; level++) {
+            matchRows.push(
+                <tr>
+                    <td>{LEVEL_MAP[level]}</td>
+                    <td>{this.getWinrateAtLevel(level)}%</td>
+                </tr>
+            );
+        }
+        return matchRows;
+    }
+
+    render() {
+        return (
+            <div className='WinrateTable'>
+                <p style={{fontWeight: 'bold'}}>
+                    Winrate
+                </p>
+                <Table condensed>
+                    <tbody>
+                    {this.getWinrateRows()}
+                    </tbody>
+                </Table>
             </div>
         )
     }

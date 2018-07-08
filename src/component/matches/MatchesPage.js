@@ -19,6 +19,7 @@ export default class MatchesPage extends Component {
                 <div className='ContentBlock'>
                     <MatchesTable/>
                     <div className='TextBlock'>
+                        <hr/>
                         <p>Only Battle Cup matches with 3 or more registered NMZL players participated are listed
                             here.</p>
                         <p>Players need to check "Expose public match data" in Dota 2 client in order for OpenDota to

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {RingLoader} from 'react-spinners';
 import '../../style/common/LoadingInfo.css';
 
 export default class LoadingInfo extends Component {
@@ -10,7 +11,9 @@ export default class LoadingInfo extends Component {
     render() {
         return (
             <div className='LoadingInfo'>
-                <div className='LoadingSpinner'/>
+                <div className='LoadingSpinner'>
+                    <RingLoader/>
+                </div>
                 <div className='LoadingText'>
                     <p>{this.loadingText}</p>
                 </div>
