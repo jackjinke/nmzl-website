@@ -130,7 +130,7 @@ class RandomResultBlock extends Component {
     }
 
     getHeroName(id) {
-        return this.heroData[id].localized_name.S;
+        return this.heroData[id].localized_name;
     }
 
     getContent() {
@@ -139,7 +139,7 @@ class RandomResultBlock extends Component {
                 <div>
                     <h5>GabeN just helped you picked:</h5>
                     <div className='RandomResult-Hero'>
-                        <img src={Util.resolveHeroImagePath(this.heroData[this.state.heroId].img.S)}
+                        <img src={Util.resolveHeroImagePath(this.heroData[this.state.heroId].img)}
                              alt={this.getHeroName(this.state.heroId)}/>
                     </div>
                     <div className='RandomResult-HeroInfo'>
@@ -187,7 +187,7 @@ class WinrateTable extends Component {
     }
 
     getWinrateAtLevel(level) {
-        return ((this.heroData[this.state.heroId].winrate.M[level].N) * 100).toFixed(2);
+        return ((this.heroData[this.state.heroId].winrate[level]) * 100).toFixed(2);
     }
 
     getWinrateRows() {
